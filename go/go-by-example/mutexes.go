@@ -13,7 +13,6 @@ func main() {
 	var state = make(map[int]int)
 	var mutex = &sync.Mutex{}
 	var ops int64 = 0
-
 	for r := 0; r < 100; r++ {
 		go func() {
 			total := 0
@@ -42,7 +41,6 @@ func main() {
 		}()
 	}
 	time.Sleep(time.Second)
-
 	opsFinal := atomic.LoadInt64(&ops)
 	fmt.Println("ops:", opsFinal)
 
